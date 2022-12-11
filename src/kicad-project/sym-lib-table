@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "TPS61097-33DBVR")(type "Legacy")(uri "${KIPRJMOD}/libs/TPS61097-33DBVR/TPS61097-33DBVR.lib")(options "")(descr ""))
+  (lib (name "PCF85063AT_AAZ")(type "Legacy")(uri "${KIPRJMOD}/libs/PCF85063AT/PCF85063AT_AAZ.lib")(options "")(descr ""))
+  (lib (name "S8421-45R")(type "Legacy")(uri "${KIPRJMOD}/libs/LIB_S8421-45R/S8421-45R.lib")(options "")(descr ""))
+)

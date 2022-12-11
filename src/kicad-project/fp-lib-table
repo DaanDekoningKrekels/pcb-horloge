@@ -1,0 +1,7 @@
+(fp_lib_table
+  (lib (name "TPS61097-33DBVR")(type "KiCad")(uri "${KIPRJMOD}/libs/TPS61097-33DBVR")(options "")(descr "")(disabled))
+  (lib (name "TPS61097-33DBVR_2")(type "KiCad")(uri "${KIPRJMOD}/libs/TPS61097-33DBVR/footprints.pretty")(options "")(descr ""))
+  (lib (name "PCF85063AT")(type "KiCad")(uri "${KIPRJMOD}/libs/PCF85063AT")(options "")(descr ""))
+  (lib (name "LIB_S8421-45R")(type "KiCad")(uri "${KIPRJMOD}/libs/LIB_S8421-45R")(options "")(descr ""))
+  (lib (name "Library")(type "KiCad")(uri "${KIPRJMOD}/libs/Library.pretty")(options "")(descr ""))
+)

@@ -1,0 +1,31 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Microchip MCP1824ST-1802E/DB
+#
+DEF MCP1824ST-1802E_DB U 0 40 Y Y 1 L N
+F0 "U" 0 200 50 H V L CNN 
+F1 "MCP1824ST-1802E/DB" 0 300 50 H V L CNN 
+F2 "Microchip-MCP1824ST-1802E_DB-*" 0 400 50 H I L CNN 
+F3 "" 0 500 50 H I L CNN 
+F4 "revA, Aug-2007" 0 600 50 H I L CNN "Datasheet Version"
+F5 "3-Lead Plastic Small Outline Transistor (DB) [SOT-223]" 0 700 50 H I L CNN "Package Description"
+F6 "revBB, Aug-2009" 0 800 50 H I L CNN "Package Version"
+F7 "IC" 0 900 50 H I L CNN "category"
+F8 "1496308" 0 1000 50 H I L CNN "ciiva ids"
+F9 "febac5c43d4d5bf1" 0 1100 50 H I L CNN "library id"
+F10 "Microchip" 0 1200 50 H I L CNN "manufacturer"
+F11 "SOT-223-DB3" 0 1300 50 H I L CNN "package"
+F12 "1300337728" 0 1400 50 H I L CNN "release date"
+F13 "4048DC36-9E4B-4CE5-B5AC-54CA7F535B7D" 0 1500 50 H I L CNN "vault revision"
+F14 "yes" 0 1600 50 H I L CNN "imported"
+DRAW
+X VIN 1 100 0 100 R 40 40 1 1 W 
+X GND 2 900 -200 100 L 40 40 1 1 W 
+X VOUT 3 900 0 100 L 40 40 1 1 W 
+X GND 4 900 -300 100 L 40 40 1 1 W 
+S 200 100 800 -400 1 1 0 f
+ENDDRAW
+ENDDEF
+#
+# End Library
