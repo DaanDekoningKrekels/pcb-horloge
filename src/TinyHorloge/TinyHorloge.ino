@@ -151,7 +151,7 @@ void setup() {
   touch.begin(touchPins, sizeof(touchPins));
 
   //  setTime(hour, minute, sec);
-  rtc.setTime(14, 17, 00);  // 24H mode, ex. 6:54:00
+  rtc.setTime(10, 54, 00);  // 24H mode, ex. 6:54:00
   //  setDate(weekday, day, month, yr);
   // rtc.setDate(6, 16, 5, 2020);  // 0 for Sunday, ex. Saturday, 16.5.2020.
 
@@ -172,6 +172,15 @@ void setup() {
     set_misc(i);
     delay(100);
   }
+}
+
+ISR(RTC_CNT_vect) {
+
+  /* Insert your RTC Compare interrupt handling code */
+  TinyTouch::touch_timer_handler();
+
+  /* Compare interrupt flag has to be cleared manually */
+  RTC.INTFLAGS = RTC_CMP_bm;
 }
 
 void loop() {
@@ -213,9 +222,9 @@ void loop() {
     //    In dat geval moet er een else toegevoegd worden waar de `time_now` wordt ingesteld en `toon_tijd` wordt uitgeschakeld
     while (millis() < time_now + period) {
       set_hour(hour);      // Uur weergeven
-      delay(0.2);            // Geef CPU wat rusttijd
+      delay(0.2);          // Geef CPU wat rusttijd
       set_minute(minute);  // Minuten weergeven
-      delay(0.2);            // Geef CPU wat rusttijd
+      delay(0.2);          // Geef CPU wat rusttijd
     }
     toon_tijd = false;  // Bij volgende loop tijd niet meer tonen
   }

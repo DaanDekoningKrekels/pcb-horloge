@@ -1,0 +1,290 @@
+
+HI-register.ino.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	3d c0       	rjmp	.+122    	; 0x7c <__ctors_end>
+   2:	00 00       	nop
+   4:	57 c0       	rjmp	.+174    	; 0xb4 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	55 c0       	rjmp	.+170    	; 0xb4 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	53 c0       	rjmp	.+166    	; 0xb4 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	51 c0       	rjmp	.+162    	; 0xb4 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	4f c0       	rjmp	.+158    	; 0xb4 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	4d c0       	rjmp	.+154    	; 0xb4 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	4b c0       	rjmp	.+150    	; 0xb4 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	49 c0       	rjmp	.+146    	; 0xb4 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	47 c0       	rjmp	.+142    	; 0xb4 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	45 c0       	rjmp	.+138    	; 0xb4 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	43 c0       	rjmp	.+134    	; 0xb4 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	41 c0       	rjmp	.+130    	; 0xb4 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	3f c0       	rjmp	.+126    	; 0xb4 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	3d c0       	rjmp	.+122    	; 0xb4 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	3c c0       	rjmp	.+120    	; 0xb6 <__vector_15>
+  3e:	00 00       	nop
+  40:	39 c0       	rjmp	.+114    	; 0xb4 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	37 c0       	rjmp	.+110    	; 0xb4 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	35 c0       	rjmp	.+106    	; 0xb4 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	33 c0       	rjmp	.+102    	; 0xb4 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	31 c0       	rjmp	.+98     	; 0xb4 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	2f c0       	rjmp	.+94     	; 0xb4 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	2d c0       	rjmp	.+90     	; 0xb4 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	2b c0       	rjmp	.+86     	; 0xb4 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	29 c0       	rjmp	.+82     	; 0xb4 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	27 c0       	rjmp	.+78     	; 0xb4 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	25 c0       	rjmp	.+74     	; 0xb4 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	23 c0       	rjmp	.+70     	; 0xb4 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	21 c0       	rjmp	.+66     	; 0xb4 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	1f c0       	rjmp	.+62     	; 0xb4 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	1d c0       	rjmp	.+58     	; 0xb4 <__bad_interrupt>
+  7a:	00 00       	nop
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf ef       	ldi	r28, 0xFF	; 255
+  82:	cd bf       	out	0x3d, r28	; 61
+  84:	df e3       	ldi	r29, 0x3F	; 63
+  86:	de bf       	out	0x3e, r29	; 62
+
+00000088 <_Z15_initThreeStuffv>:
+
+  /* Minimum: Reset if we wound up here through malfunction - this relies on user clearing the  *
+   * register on startup, which is rarely done in Arduino land.                                 */
+  void __attribute__((weak)) init_reset_flags() ;
+  void __attribute__((weak)) init_reset_flags() {
+    uint8_t flags = RSTCTRL.RSTFR;
+  88:	80 91 40 00 	lds	r24, 0x0040	; 0x800040 <__RODATA_PM_OFFSET__+0x7f8040>
+    RSTCTRL.RSTFR = flags;
+  8c:	80 93 40 00 	sts	0x0040, r24	; 0x800040 <__RODATA_PM_OFFSET__+0x7f8040>
+    if (flags == 0) {
+  90:	81 11       	cpse	r24, r1
+  92:	05 c0       	rjmp	.+10     	; 0x9e <_Z15_initThreeStuffv+0x16>
+      _PROTECTED_WRITE(RSTCTRL.SWRR, 1);
+  94:	98 ed       	ldi	r25, 0xD8	; 216
+  96:	21 e0       	ldi	r18, 0x01	; 1
+  98:	94 bf       	out	0x34, r25	; 52
+  9a:	20 93 41 00 	sts	0x0041, r18	; 0x800041 <__RODATA_PM_OFFSET__+0x7f8041>
+    }
+    GPIOR0 = flags;
+  9e:	8c bb       	out	0x1c, r24	; 28
+
+000000a0 <__do_clear_bss>:
+  a0:	28 e3       	ldi	r18, 0x38	; 56
+  a2:	a0 e0       	ldi	r26, 0x00	; 0
+  a4:	b8 e3       	ldi	r27, 0x38	; 56
+  a6:	01 c0       	rjmp	.+2      	; 0xaa <.do_clear_bss_start>
+
+000000a8 <.do_clear_bss_loop>:
+  a8:	1d 92       	st	X+, r1
+
+000000aa <.do_clear_bss_start>:
+  aa:	aa 30       	cpi	r26, 0x0A	; 10
+  ac:	b2 07       	cpc	r27, r18
+  ae:	e1 f7       	brne	.-8      	; 0xa8 <.do_clear_bss_loop>
+  b0:	3c d0       	rcall	.+120    	; 0x12a <main>
+  b2:	69 c0       	rjmp	.+210    	; 0x186 <_exit>
+
+000000b4 <__bad_interrupt>:
+  b4:	a5 cf       	rjmp	.-182    	; 0x0 <__vectors>
+
+000000b6 <__vector_15>:
+      }
+      RTC.INTFLAGS = RTC_OVF_bm | RTC_CMP_bm; // clear flag
+    }
+  #else
+    ISR(MILLIS_TIMER_VECTOR, ISR_NAKED) {
+      __asm__ __volatile__(
+  b6:	ef 93       	push	r30
+  b8:	ff 93       	push	r31
+          #endif
+          _timer->INTFLAGS = TCB_CAPT_bm;   // reset Interrupt flag of TCBx
+        }
+      */
+    #else // TCA0 or TCD0, also naked
+      __asm__ __volatile__(
+  ba:	e0 e0       	ldi	r30, 0x00	; 0
+  bc:	f8 e3       	ldi	r31, 0x38	; 56
+  be:	8f 93       	push	r24
+  c0:	8f b7       	in	r24, 0x3f	; 63
+  c2:	8f 93       	push	r24
+  c4:	9f 93       	push	r25
+  c6:	7f 93       	push	r23
+  c8:	72 e0       	ldi	r23, 0x02	; 2
+  ca:	80 81       	ld	r24, Z
+  cc:	91 81       	ldd	r25, Z+1	; 0x01
+  ce:	88 5d       	subi	r24, 0xD8	; 216
+  d0:	9f 4f       	sbci	r25, 0xFF	; 255
+  d2:	80 83       	st	Z, r24
+  d4:	91 83       	std	Z+1, r25	; 0x01
+  d6:	88 5e       	subi	r24, 0xE8	; 232
+  d8:	93 40       	sbci	r25, 0x03	; 3
+  da:	18 f0       	brcs	.+6      	; 0xe2 <lower>
+  dc:	80 83       	st	Z, r24
+  de:	91 83       	std	Z+1, r25	; 0x01
+  e0:	7f 5f       	subi	r23, 0xFF	; 255
+
+000000e2 <lower>:
+  e2:	92 81       	ldd	r25, Z+2	; 0x02
+  e4:	97 0f       	add	r25, r23
+  e6:	92 83       	std	Z+2, r25	; 0x02
+  e8:	80 e0       	ldi	r24, 0x00	; 0
+  ea:	93 81       	ldd	r25, Z+3	; 0x03
+  ec:	98 1f       	adc	r25, r24
+  ee:	93 83       	std	Z+3, r25	; 0x03
+  f0:	94 81       	ldd	r25, Z+4	; 0x04
+  f2:	98 1f       	adc	r25, r24
+  f4:	94 83       	std	Z+4, r25	; 0x04
+  f6:	95 81       	ldd	r25, Z+5	; 0x05
+  f8:	98 1f       	adc	r25, r24
+  fa:	95 83       	std	Z+5, r25	; 0x05
+  fc:	96 81       	ldd	r25, Z+6	; 0x06
+  fe:	9f 5f       	subi	r25, 0xFF	; 255
+ 100:	96 83       	std	Z+6, r25	; 0x06
+ 102:	97 81       	ldd	r25, Z+7	; 0x07
+ 104:	9f 4f       	sbci	r25, 0xFF	; 255
+ 106:	97 83       	std	Z+7, r25	; 0x07
+ 108:	90 85       	ldd	r25, Z+8	; 0x08
+ 10a:	9f 4f       	sbci	r25, 0xFF	; 255
+ 10c:	90 87       	std	Z+8, r25	; 0x08
+ 10e:	91 85       	ldd	r25, Z+9	; 0x09
+ 110:	9f 4f       	sbci	r25, 0xFF	; 255
+ 112:	91 87       	std	Z+9, r25	; 0x09
+ 114:	81 e0       	ldi	r24, 0x01	; 1
+ 116:	80 93 8d 0a 	sts	0x0A8D, r24	; 0x800a8d <__RODATA_PM_OFFSET__+0x7f8a8d>
+ 11a:	7f 91       	pop	r23
+ 11c:	9f 91       	pop	r25
+ 11e:	8f 91       	pop	r24
+ 120:	8f bf       	out	0x3f, r24	; 63
+ 122:	8f 91       	pop	r24
+ 124:	ff 91       	pop	r31
+ 126:	ef 91       	pop	r30
+ 128:	18 95       	reti
+
+0000012a <main>:
+      #elif (F_CPU == 2000000) // 16MHz prescaled by 8
+        /* Clock DIV8 */
+        _PROTECTED_WRITE(CLKCTRL_MCLKCTRLB, (CLKCTRL_PEN_bm | CLKCTRL_PDIV_8X_gc));
+      #elif (F_CPU == 1000000) // 16MHz prescaled by 16
+        /* Clock DIV16 */
+        _PROTECTED_WRITE(CLKCTRL_MCLKCTRLB, (CLKCTRL_PEN_bm | CLKCTRL_PDIV_16X_gc));
+ 12a:	97 e0       	ldi	r25, 0x07	; 7
+ 12c:	88 ed       	ldi	r24, 0xD8	; 216
+ 12e:	84 bf       	out	0x34, r24	; 52
+ 130:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__RODATA_PM_OFFSET__+0x7f8061>
+    #elif F_CPU  >=  6000000    //  8 MHz /  8 = 1.0 MHz,  10 MHz /  8 = 1.25 MHz
+      ADC0.CTRLC  =  ADC_PRESC_DIV8_gc | ADC_REFSEL_VDDREF_gc | ADC_SAMPCAP_bm;
+    #elif F_CPU  >=  3000000    //  4 MHz /  4 = 1.0 MHz,   5 MHz /  4 = 1.25 MHz
+      ADC0.CTRLC  =  ADC_PRESC_DIV4_gc | ADC_REFSEL_VDDREF_gc | ADC_SAMPCAP_bm;
+    #else                       //  1 MHz /  2 = 500 kHz - the lowest setting
+      ADC0.CTRLC  =  ADC_PRESC_DIV2_gc | ADC_REFSEL_VDDREF_gc | ADC_SAMPCAP_bm;
+ 134:	80 e5       	ldi	r24, 0x50	; 80
+ 136:	80 93 02 06 	sts	0x0602, r24	; 0x800602 <__RODATA_PM_OFFSET__+0x7f8602>
+    #if   (F_CPU == 6000000 || F_CPU == 12000000 || F_CPU == 24000000 || F_CPU ==25000000)
+      ADC0.SAMPCTRL = (7); // 9 ADC clocks, 12 us
+    #elif (F_CPU == 5000000 || F_CPU == 10000000 || F_CPU == 20000000)
+      ADC0.SAMPCTRL = (13);   // 15 ADC clock,s 12 us
+    #else
+      ADC0.SAMPCTRL = (10); // 12 ADC clocks, 12 us
+ 13a:	8a e0       	ldi	r24, 0x0A	; 10
+ 13c:	80 93 05 06 	sts	0x0605, r24	; 0x800605 <__RODATA_PM_OFFSET__+0x7f8605>
+    #endif
+    ADC0.CTRLD    = ADC_INITDLY_DLY16_gc;
+ 140:	80 e2       	ldi	r24, 0x20	; 32
+ 142:	80 93 03 06 	sts	0x0603, r24	; 0x800603 <__RODATA_PM_OFFSET__+0x7f8603>
+    ADC0.CTRLA    = ADC_ENABLE_bm;
+ 146:	81 e0       	ldi	r24, 0x01	; 1
+ 148:	80 93 00 06 	sts	0x0600, r24	; 0x800600 <__RODATA_PM_OFFSET__+0x7f8600>
+  #ifdef __AVR_ATtinyxy2__
+    PORTMUX.CTRLC = 1; // move WO0 output to PA7 so PA3 can be used with WO3
+  #endif
+
+  /* Enable Split Mode */
+  TCA0.SPLIT.CTRLD = TCA_SPLIT_SPLITM_bm;
+ 14c:	80 93 03 0a 	sts	0x0A03, r24	; 0x800a03 <__RODATA_PM_OFFSET__+0x7f8a03>
+
+  // Only 1 WGM so no need to specifically set up.
+
+  /* Period setting, 8-bit register in SPLIT mode */
+  TCA0.SPLIT.LPER    = PWM_TIMER_PERIOD;
+ 150:	2e ef       	ldi	r18, 0xFE	; 254
+ 152:	20 93 26 0a 	sts	0x0A26, r18	; 0x800a26 <__RODATA_PM_OFFSET__+0x7f8a26>
+  TCA0.SPLIT.HPER    = PWM_TIMER_PERIOD;
+ 156:	20 93 27 0a 	sts	0x0A27, r18	; 0x800a27 <__RODATA_PM_OFFSET__+0x7f8a27>
+    TCA0.SPLIT.HCMP1 = 0;
+    TCA0.SPLIT.LCMP2 = 0;
+    TCA0.SPLIT.HCMP2 = 0;
+  */
+
+  TCA0.SPLIT.CTRLA = (TIMERA_PRESCALER_bm | TCA_SPLIT_ENABLE_bm);
+ 15a:	90 93 00 0a 	sts	0x0A00, r25	; 0x800a00 <__RODATA_PM_OFFSET__+0x7f8a00>
+    #if defined(MILLIS_USE_TIMERA0)
+      TCA0.SPLIT.INTCTRL |= TCA_SPLIT_HUNF_bm;
+    #elif defined(MILLIS_USE_TIMERA1)
+      TCA1.SPLIT.INTCTRL |= TCA_SPLIT_HUNF_bm;
+    #elif defined(MILLIS_USE_TIMERD0)
+      TCD0.CMPBCLR        = TIME_TRACKING_TIMER_PERIOD; // essentially, this is TOP
+ 15e:	2d ef       	ldi	r18, 0xFD	; 253
+ 160:	31 e0       	ldi	r19, 0x01	; 1
+ 162:	20 93 ae 0a 	sts	0x0AAE, r18	; 0x800aae <__RODATA_PM_OFFSET__+0x7f8aae>
+ 166:	30 93 af 0a 	sts	0x0AAF, r19	; 0x800aaf <__RODATA_PM_OFFSET__+0x7f8aaf>
+      TCD0.CTRLB          = 0x00; // oneramp mode
+ 16a:	10 92 81 0a 	sts	0x0A81, r1	; 0x800a81 <__RODATA_PM_OFFSET__+0x7f8a81>
+      TCD0.CTRLC          = 0x80;
+ 16e:	90 e8       	ldi	r25, 0x80	; 128
+ 170:	90 93 82 0a 	sts	0x0A82, r25	; 0x800a82 <__RODATA_PM_OFFSET__+0x7f8a82>
+      TCD0.INTCTRL        = 0x01; // enable interrupt
+ 174:	80 93 8c 0a 	sts	0x0A8C, r24	; 0x800a8c <__RODATA_PM_OFFSET__+0x7f8a8c>
+      TCD0.CTRLA          = TIMERD0_PRESCALER | 0x01; // set clock source and enable!
+ 178:	83 e1       	ldi	r24, 0x13	; 19
+ 17a:	80 93 80 0a 	sts	0x0A80, r24	; 0x800a80 <__RODATA_PM_OFFSET__+0x7f8a80>
+ * just waiting for the DU-series now                                                           */
+int main() {
+  onBeforeInit(); // Emnpty callback called before init but after the .init stuff. First normal code executed
+  init(); // Interrupts are turned on just prior to init() returning.
+  initVariant();
+  if (!onAfterInit()) sei();  // enable interrupts.
+ 17e:	78 94       	sei
+void loop() {
+  // put your main code here, to run repeatedly:
+}
+
+void reset_LED_pins() {
+  PORTA.DIR = 0b00000000;  // set all pins as an output
+ 180:	10 92 00 04 	sts	0x0400, r1	; 0x800400 <__RODATA_PM_OFFSET__+0x7f8400>
+ 184:	ff cf       	rjmp	.-2      	; 0x184 <main+0x5a>
+
+00000186 <_exit>:
+ 186:	f8 94       	cli
+
+00000188 <__stop_program>:
+ 188:	ff cf       	rjmp	.-2      	; 0x188 <__stop_program>

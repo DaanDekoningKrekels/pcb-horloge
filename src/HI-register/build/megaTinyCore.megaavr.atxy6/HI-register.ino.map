@@ -1,0 +1,82 @@
+
+
+Symbols from /tmp/arduino-sketch-F2F7124DB7F384DE0801D0C46746A225/HI-register.ino.elf:
+
+Name                  Value   Class        Type         Size     Line  Section
+
+__heap_end          |00000000|   W  |            NOTYPE|        |     |*ABS*
+__TEXT_REGION_ORIGIN__|00000000|   W  |            NOTYPE|        |     |*ABS*
+__tmp_reg__         |00000000|   a  |            NOTYPE|        |     |*ABS*
+__vector_default    |00000000|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:61
+__vectors           |00000000|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:61
+__zero_reg__        |00000001|   a  |            NOTYPE|        |     |*ABS*
+__FUSE_REGION_LENGTH__|0000000a|   A  |            NOTYPE|        |     |*ABS*
+__CCP__             |00000034|   a  |            NOTYPE|        |     |*ABS*
+__SP_L__            |0000003d|   a  |            NOTYPE|        |     |*ABS*
+__SP_H__            |0000003e|   a  |            NOTYPE|        |     |*ABS*
+__SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
+__ctors_end         |0000007c|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__ctors_start       |0000007c|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__dtors_end         |0000007c|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__dtors_start       |0000007c|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__init              |0000007c|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__trampolines_end   |0000007c|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__trampolines_start |0000007c|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+_initThreeStuff()   |00000088|   T  |              FUNC|00000018|     |.text	/home/daan/.arduino15/packages/megaTinyCore/hardware/megaavr/2.6.4/cores/megatinycore/main.cpp:149
+__do_clear_bss      |000000a0|   T  |            NOTYPE|00000010|     |.text	/home/admin/Arduino/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+.do_clear_bss_loop  |000000a8|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+.do_clear_bss_start |000000aa|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+__bad_interrupt     |000000b4|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_1          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_10         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_11         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_12         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_13         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_14         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_16         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_17         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_18         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_19         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_2          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_20         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_21         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_22         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_23         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_24         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_25         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_26         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_27         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_28         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_29         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_3          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_30         |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_4          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_5          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_6          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_7          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_8          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_9          |000000b4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:315
+__vector_15         |000000b6|   T  |              FUNC|00000074|     |.text	/home/daan/.arduino15/packages/megaTinyCore/hardware/megaavr/2.6.4/cores/megatinycore/wiring.c:232
+lower               |000000e2|   t  |            NOTYPE|        |     |.text	/home/daan/.arduino15/packages/megaTinyCore/hardware/megaavr/2.6.4/cores/megatinycore/wiring.c:281
+__EEPROM_REGION_LENGTH__|00000100|   A  |            NOTYPE|        |     |*ABS*
+main                |0000012a|   T  |              FUNC|0000005c|     |.text	/home/daan/.arduino15/packages/megaTinyCore/hardware/megaavr/2.6.4/cores/megatinycore/main.cpp:49
+_exit               |00000186|   T  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+exit                |00000186|   W  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+__stop_program      |00000188|   t  |            NOTYPE|        |     |.text	/home/admin/Arduino/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+__data_load_end     |0000018a|   A  |            NOTYPE|        |     |*ABS*
+__data_load_start   |0000018a|   a  |            NOTYPE|        |     |*ABS*
+_etext              |0000018a|   T  |            NOTYPE|        |     |.text
+__LOCK_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__USER_SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
+__DATA_REGION_LENGTH__|00000800|   A  |            NOTYPE|        |     |*ABS*
+__stack             |00003fff|   W  |            NOTYPE|        |     |*ABS*
+__RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*
+__TEXT_REGION_LENGTH__|00008000|   A  |            NOTYPE|        |     |*ABS*
+__bss_start         |00803800|   B  |            NOTYPE|        |     |.bss
+__DATA_REGION_ORIGIN__|00803800|   A  |            NOTYPE|        |     |*ABS*
+_edata              |00803800|   D  |            NOTYPE|        |     |.data
+timingStruct        |00803800|   b  |            OBJECT|0000000a|     |.bss	/home/daan/.arduino15/packages/megaTinyCore/hardware/megaavr/2.6.4/cores/megatinycore/wiring.c:219
+__bss_end           |0080380a|   B  |            NOTYPE|        |     |.bss
+_end                |0080380a|   N  |            NOTYPE|        |     |.comment
+__eeprom_end        |00810000|   N  |            NOTYPE|        |     |.comment
