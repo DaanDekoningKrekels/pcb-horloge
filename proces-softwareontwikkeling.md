@@ -138,7 +138,7 @@ De binaire bestanden zitten mee in deze repository. MEt het volgende commando ku
 
 `avr-objdump -Sz HI-register.ino.elf`
 
-```
+```Cpp-ObjDump
 void reset_LED_pins() {
   PORTA.DIR = 0b00000000;  // set all pins as an output
  180:	10 92 00 04 	sts	0x0400, r1	; 0x800400 <__RODATA_PM_OFFSET__+0x7f8400>
@@ -146,7 +146,7 @@ void reset_LED_pins() {
 ```
 `avr-objdump -d HI-register.ino.elf`
 
-```
+```Cpp-ObjDump
  17a:	80 93 80 0a 	sts	0x0A80, r24	; 0x800a80 <__RODATA_PM_OFFSET__+0x7f8a80>
  17e:	78 94       	sei
  180:	10 92 00 04 	sts	0x0400, r1	; 0x800400 <__RODATA_PM_OFFSET__+0x7f8400>
@@ -155,7 +155,7 @@ void reset_LED_pins() {
 
 `avr-objdump -Sz HI-loop.ino.elf`
 
-```
+```Cpp-ObjDump
 void reset_LED_pins() {
   for (byte i = 0; i < AANTAL_LED_PINS; i++) {
  1be:	d2 e8       	ldi	r29, 0x82	; 130
@@ -166,8 +166,8 @@ void reset_LED_pins() {
 ```
 `avr-objdump -Sz HI-loop.ino.elf`
 
-```
-17a:	80 93 80 0a 	sts	0x0A80, r24	; 0x800a80 <_ZL8LED_PINS+0x7f887e>
+```Cpp-ObjDump
+ 17a:	80 93 80 0a 	sts	0x0A80, r24	; 0x800a80 <_ZL8LED_PINS+0x7f887e>
  17e:	78 94       	sei
  180:	a2 e0       	ldi	r26, 0x02	; 2
  182:	b2 e8       	ldi	r27, 0x82	; 130
