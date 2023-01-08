@@ -1,3 +1,7 @@
+// Documentatie Touch: https://docs.tinycore.dev/en/latest/usage.html#touch
+// Toch bibliotheek: https://github.com/xukangmin/TinyCore/tree/master/avr/libraries/Touch
+
+
 #include <PCF85063A.h>
 PCF85063A rtc;
 
@@ -165,7 +169,6 @@ void reset_LED_pins() {
   for (byte i = 0; i < AANTAL_LED_PINS; i++) {
     pinMode(LED_PINS[i], INPUT);  // Alle pinnen hoog impedant zetten
   }
-  // PORTA.DIR = 0b00000000;  // set all pins as an output
 }
 
 void set_hour(int hour) {

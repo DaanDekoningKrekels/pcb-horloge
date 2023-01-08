@@ -4,9 +4,6 @@
 // Datasheet p94 | 11.5.1 Control A Register CTRLA
 
 
-
-
-
 #include <avr/sleep.h>  //Needed for sleep_mode
 #include <avr/power.h>  //Needed for powering down perihperals such as the ADC/TWI and Timers
 #include <TinyTouch.h>
@@ -145,8 +142,8 @@ void setup() {
   // Selects which sleep mode to enter when the Sleep Enable (SEN) bit is written to ‘1’
   // and the SLEEP extruction is executed.
   // SLPCTRL_CTRLA = SLEEP_MODE_IDLE;
-  sleep_enable();
   set_sleep_mode(SLEEP_MODE_IDLE);
+  // sleep_enable();
 }
 
 ISR(RTC_CNT_vect) {
@@ -159,14 +156,17 @@ ISR(RTC_CNT_vect) {
   touch.touchHandle();
   if (touch.getValue(0) > 1000) {
     blijven_hangen = true;
-    // SLPCTRL_CTRLA = 0b00000000;
+    SLPCTRL_CTRLA = 0b00000000;
     sleep_disable();
   }
   if (touch.getValue(1) > 1000) {
     blijven_hangen = true;
-    // SLPCTRL_CTRLA = 0b00000000;
+    SLPCTRL_CTRLA = 0b00000000;
     sleep_disable();
   }
+
+  sleep_enable();
+  sleep_cpu();
 }
 
 void loop() {
@@ -205,10 +205,6 @@ void loop() {
 */
 void reset_LED_pins() {
   PORTA_DIR = 0b00000000;  // set all pins as an output
-  // for (byte i = 0; i < AANTAL_LED_PINS; i++) {
-  //   pinMode(LED_PINS[i], INPUT);  // Alle pinnen hoog impedant zetten
-  // }
-  // PORTA_OUT = 0b00000000;  // set all pins as an LOW
 }
 
 /*
@@ -220,11 +216,6 @@ void set_hour(int hour) {
 
   PORTA_DIR = UREN[hour][0] | UREN[hour][1];  // Pinnen als output
   PORTA_OUT = UREN[hour][1];                  // Enkel deze als HIGH
-
-  // pinMode(UREN[hour][0], OUTPUT);
-  // pinMode(UREN[hour][1], OUTPUT);
-  // digitalWrite(UREN[hour][0], LOW);
-  // digitalWrite(UREN[hour][1], HIGH);
 }
 
 /*
@@ -236,11 +227,6 @@ void set_minute(int minute) {
 
   PORTA_DIR = MINUTEN[minute][0] | MINUTEN[minute][1];  // Pinnen als output
   PORTA_OUT = MINUTEN[minute][1];                       // Enkel deze als HIGH
-
-  //   pinMode(MINUTEN[minute][0], OUTPUT);
-  //   pinMode(MINUTEN[minute][1], OUTPUT);
-  //   digitalWrite(MINUTEN[minute][0], LOW);
-  //   digitalWrite(MINUTEN[minute][1], HIGH);
 }
 
 /*
@@ -252,9 +238,4 @@ void set_misc(int misc) {
 
   PORTA_DIR = MISC[misc][0] | MISC[misc][1];  // Pinnen als output
   PORTA_OUT = MISC[misc][1];                  // Enkel deze als HIGH
-
-  // pinMode(MISC[misc][0], OUTPUT);
-  // pinMode(MISC[misc][1], OUTPUT);
-  // digitalWrite(MISC[misc][0], LOW);
-  // digitalWrite(MISC[misc][1], HIGH);
 }

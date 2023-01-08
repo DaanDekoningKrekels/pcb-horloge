@@ -34,7 +34,7 @@ Er zal telkens één GPIO pin laag worden gezet en één GPIO pin hoog worden ge
 
 
 Voor het horloge kunnen we opteren voor 6 pinnen om zo de 24 LED’s aan te sturen. Het is ook mogelijk om 2x 4 pinnen te gebruiken en zo op 24 LED’s uit te komen.
-Verder onderzoek moet duidelijk maken welke keuze het beste is. 2x 4 pinnen is misschien softwarematig gemakkelijker om aan te sturen maar gebruikt meer GPIO pinnen van onze MCU. Met 6 pinnen hebben we er ook genoeg om voor de individuele minuten een indicator te maken.
+Verder onderzoek moet duidelijk maken welke keuze het beste is. 2x 4 pinnen is misschien softwarematig gemakkelijker om aan te sturen, maar gebruikt meer GPIO pinnen van onze MCU. Met 6 pinnen hebben we er ook genoeg om voor de individuele minuten een indicator te maken.
 
 
 ![charlieplex-circuit](assets/charlieplex-circuit.svg)  
@@ -70,7 +70,7 @@ Om de wijzer LED’s op de horloge te activeren en om de pomodoro in te stellen 
 
 De LED’s zullen aangesloten worden via charlieplexing. Op deze manier kunnen we 2x 12 LED’s aansturen en eventueel nog 4 extra LED’s om de individuele minuten aan te geven. Dit kunnen we doen met slechts 6 GPIO pinnen.
 
-Voor de LED’s kunnen we gebruik maken van alle pinnen die een digitale en analoge funcitie bieden. Dit omdat we de pin op ,  en  moeten kunnen instellen. Een mogelijke selectie is **PA1**, **PA2**, **PA4**, **PA5**, **PA6** en **PA7**. Het feit dat al deze pinnen op hetzelfde reigster zitten kan het eventueel achteraf ook gemakkelijker maken om duidelijke code te schrijven.
+Voor de LED’s kunnen we gebruik maken van alle pinnen die een digitale en analoge functie bieden. Dit omdat we de pin op 0, 1 en Z moeten kunnen instellen. Een mogelijke selectie is **PA1**, **PA2**, **PA4**, **PA5**, **PA6** en **PA7**. Het feit dat al deze pinnen op hetzelfde register zitten kan het eventueel achteraf ook gemakkelijker maken om duidelijke code te schrijven.
 
 Om de MCU te kunnen programmeren moeten we maar 3 pinnen naar buiten brengen: **RESET**, GND en VDD. We kunnen deze pinnen beschikbaar maken door een aantal lege kopervlakken te laten. Het is niet nodig om een externe RESET knop aan te sluiten. Moest de MCU gereset worden tijdens het testen, dan kan de RESET aansluiting tijdelijk recht naar de massa gekoppeld worden.
 
@@ -114,7 +114,7 @@ De spanning van deze batterijen zal over tijd dalen van 3 V naar 2 V. De spannin
 Zie rechts de ontladingskarakteristiek van een [Multicomp](https://www.farnell.com/datasheets/1671733.pdf) knoopcel.
 
 
-De dropout voltage van de MCP1824 is typisch 300mV. Dit wil zeggen dat de ingangsspanning hoger moet zijn dan de . De minimale uitgangsspanning is dus 1,8 V. Dit komt goed uit want de minimale werkingsspanning van de ATtiny is ook 1,8 V. Ook de PCF85063A RTC kan werken op deze spanning, zijn werkingsspanning is 0,9V tot 5,5V. 1,8V is de minimale spanning waarop de I²C bus van de RTC module kan werken, dit komt dus perfect uit met de rest van de schakeling.
+De dropout voltage van de MCP1824 is typisch 300mV. Dit wil zeggen dat de ingangsspanning hoger moet zijn dan de U+300 mV=U out MIN. De minimale uitgangsspanning is dus 1,8 V. Dit komt goed uit want de minimale werkingsspanning van de ATtiny is ook 1,8 V. Ook de PCF85063A RTC kan werken op deze spanning, zijn werkingsspanning is 0,9V tot 5,5V. 1,8V is de minimale spanning waarop de I²C bus van de RTC module kan werken, dit komt dus perfect uit met de rest van de schakeling.
 
 Wanneer de ATtiny werkt op 1,8 V is zijn maximale kloksnelheid 5MHz. Dit is echter geen probleem. 
 
@@ -143,12 +143,12 @@ Na verder onderzoek kwamen we uit op een switching boost regulator die bruikbaar
 
 Een schakelende spanningsregelaar is ook vele malen efficiënter dan de lineaire regelaar die we eerst gingen gebruiken. Ook de stabiliteit van de spanning en het feit dat we dan ieder component op 3,3V kunnen laten werken is een enorm voordeel. Zo zal de spanning van de batterij er niet meer voor zorgen dat de leds op een andere intensiteit zullen branden.
 
-De TPS61221 die in bocenstaande wron gebruikt wordt is spijtig genoeg nergens beschikbaar, maar dankij mr. Luyts hebben we twee vervangende componenten gevonden. 
+De TPS61221 die in bocenstanden wordt gebruikt wordt is spijtig genoeg nergens beschikbaar, maar dankzij mr. Luyts hebben we twee vervangende componenten gevonden. 
 
 https://www.digikey.be/en/products/detail/texas-instruments/TPS61097-33DBVR/2092365
 
 [https://eu.mouser.com/ProductDetail/Texas-Instruments/TPS61291DRVT?qs=6E8igxPflKclok%252BjdNvlFw%3D%3D](https://eu.mouser.com/ProductDetail/Texas-Instruments/TPS61291DRVT?qs=6E8igxPflKclok%2BjdNvlFw%3D%3D)
 
-Ik zal gebruik maken van de TPS61097-33DBVR. Dit omat zijn footprint er iets realistischer uitziet en omdat deze voor onze batterij ideaal lijkt. Dezelfde regelaar kan ook in een ander projectvak nog goed van pas komen omdat deze regelaar overweg kan met zonnecellen.
+Ik zal gebruik maken van de TPS61097-33DBVR. Dit omdat zijn footprint er iets realistischer uitziet en omdat deze voor onze batterij ideaal lijkt. Dezelfde regelaar kan ook in een ander projectvak nog goed van pas komen omdat deze regelaar overweg kan met zonnecellen.
 
-Een potentieel probleem bij het gebruik van een lineaire regelaar is de ruis die er gegenereert wordt door het schakelen van de interne mosfets. De capacitieve PTC snesoren die ik wil toepassen kunnne daar eventueel problemen bij ondervinden. Hier zal ik dan ook rekening mee houden bij het ontwerpen van de prinplaat.
+Een potentieel probleem bij het gebruik van een lineaire regelaar is de ruis die er gegenereerd wordt door het schakelen van de interne mosfets. De capacitieve PTC sensoren die ik wil toepassen kunnen daar eventueel problemen bij ondervinden. Hier zal ik dan ook rekening mee houden bij het ontwerpen van de printplaat.

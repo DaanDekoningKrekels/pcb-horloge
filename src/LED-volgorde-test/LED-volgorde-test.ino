@@ -1,9 +1,9 @@
-#define X1 PIN_PA1
-#define X2 PIN_PA2
-#define X3 PIN_PA4
-#define X4 PIN_PA5
-#define X5 PIN_PA6
-#define X6 PIN_PA7
+#define X1 10  // PIN_PA1
+#define X2 11  // PIN_PA2
+#define X3 13  // PIN_PA4
+#define X4 14  // PIN_PA5
+#define X5 15  // PIN_PA6
+#define X6 16  // PIN_PA7
 
 const byte AANTAL_LED_PINS = 6;
 const byte LED_PINS[] = { X1, X2, X3, X4, X5, X6 };
